@@ -14,7 +14,7 @@
 
 <BorderPane prefHeight="343.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.alien.AlienController">
    <top>
-      <Label text="Lab 1 - Alien Translator" BorderPane.alignment="CENTER">
+      <Label text="Lab 2 - Alien Translator" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" />
          </BorderPane.margin>

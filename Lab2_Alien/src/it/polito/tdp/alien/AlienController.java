@@ -42,7 +42,6 @@ public class AlienController {
     }
   
     AlienDictionary ad = new AlienDictionary();
-    List<String> trtemp = new LinkedList<String>();
     
     @FXML
     void doTranslate(ActionEvent event) {
@@ -52,21 +51,19 @@ public class AlienController {
     	
     	if(inserita.contains(" ")) {
     		String[] inserite = inserita.split(" ");
-    		ad.addWord(inserite[0], inserite[1]);
     		if (inserite[0].matches("[a-z]*") && inserite[1].matches("[a-z]*")) {
-    			txtResult.appendText("\nNuovo inserimento:\n" +"Alien word: "+ inserite[0] + " " +"Traduzione: "+ inserite[1]);
-    			trtemp.add(ad.translateWord(inserite[0]));
+    			txtResult.appendText("\nNuovo inserimento:\n"
+    						+"Alien word: "+ inserite[0] + " " +"Traduzione: "+ inserite[1]);
+    			ad.addWord(inserite[0], inserite[1]);
     			ok = true;
     		}
     	}	
 		
 		if(!inserita.contains(" ") && inserita.matches("[a-z]*")){
-			trtemp.add(ad.translateWord(inserita));
-			if (!trtemp.isEmpty()) {
-				for(String s : trtemp) {
+			List<String>  list = ad.translateWord(inserita);
+				for(String s : list) {
 					txtResult.appendText("\n"+s);
 				}
-			}
 			ok = true;
 		}
 		

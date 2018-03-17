@@ -17,16 +17,16 @@ public class AlienDictionary {
 			}
 		}
 		WordEnhanced wtemp = new WordEnhanced(alienWord,translation);
-		wordList.add(wtemp);
 		if(!wtemp.getTraduzioni().contains(translation)) {
 			wtemp.aggiungiTraduzione(translation);
 		}
+		wordList.add(wtemp);
 	}
 	
-	public String translateWord(String alienWord) {
+	public List<String> translateWord(String alienWord) {
 		for(WordEnhanced w : wordList) {
 			if(w.getAlienWord().toLowerCase().equals(alienWord.toLowerCase())) {
-				return w.getTranslation();
+				return w.getTraduzioni();
 			}
 		}		
 		return null;

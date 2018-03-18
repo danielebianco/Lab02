@@ -47,17 +47,16 @@ public class AlienController {
     	
     	String inserita = txtWord.getText();
     	boolean ok = false;
-    	
     	if(inserita.contains(" ")) {
     		String[] inserite = inserita.split(" ");
     		ad.addWord(inserite[0], inserite[1]);
-    		if (inserite[0].matches("[a-z]*") && inserite[1].matches("[a-z]*")) {
+    		if (inserite[0].matches("[a-zA-Z]*") && inserite[1].matches("[a-zA-Z]*")) {
     			txtResult.appendText("\nNuovo inserimento:\n" +"Alien word: "+ inserite[0] + " " +"Traduzione: "+ inserite[1]);
     			ok = true;
     		}
     	}	
 		
-		if(!inserita.contains(" ") && inserita.matches("[a-z]*")){
+		if(!inserita.contains(" ") && inserita.matches("[a-zA-Z]*")){
 			String s = ad.translateWord(inserita);
 			if (s!= null) {
 				txtResult.appendText("\n"+s);
@@ -65,7 +64,7 @@ public class AlienController {
 			ok = true;
 		}
 		
-		if (!inserita.matches("[a-z]*") && ok == false) {
+		if (!inserita.matches("[a-zA-Z]*") && ok == false) {
 			txtResult.appendText("\nAttenzione! Formato non riconosciuto.");
 		}
 				

@@ -51,7 +51,7 @@ public class AlienController {
     	
     	if(inserita.contains(" ")) {
     		String[] inserite = inserita.split(" ");
-    		if (inserite[0].matches("[a-zA-Z?]*") && inserite[1].matches("[a-zA-Z]*")) {
+    		if (inserite[0].matches("[a-zA-Z]*") && inserite[1].matches("[a-zA-Z]*")) {
     			txtResult.appendText("\nNuovo inserimento:\n"
     						+"Alien word: "+ inserite[0] + " " +"Traduzione: "+ inserite[1]);
     			ad.addWord(inserite[0], inserite[1]);
@@ -59,7 +59,7 @@ public class AlienController {
     		}
     	}	
 		
-		if(!inserita.contains(" ") && inserita.matches("[a-zA-Z?]*")){
+		if(!inserita.contains(" ") && inserita.matches("[a-zA-Z]*")){
 			List<String>  list = ad.translateWord(inserita);
 				for(String s : list) {
 					txtResult.appendText("\n"+s);
@@ -67,7 +67,19 @@ public class AlienController {
 			ok = true;
 		}
 		
-		if (!inserita.matches("[a-zA-Z?]*") && ok == false) {
+		if(inserita.matches("[a-zA-Z?]*")) {
+			String[] insert = inserita.split("?");
+			for(String s : ad.getAlWord()) {
+				if(s.contains(insert[0]) && s.contains(insert[1])) {
+					List<String>  list = ad.translateWord(inserita);
+					for(String sx : list) {
+						txtResult.appendText("\n"+sx);
+					}
+				}
+			}ok = true;
+		}
+		
+		if (ok == false && !inserita.matches("[a-zA-Z]*")) {
 			txtResult.appendText("\nAttenzione! Formato non riconosciuto.");
 		}
 				

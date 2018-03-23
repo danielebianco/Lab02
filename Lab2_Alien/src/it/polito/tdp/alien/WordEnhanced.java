@@ -33,17 +33,15 @@ public class WordEnhanced {
 	public List<String> getTraduzioni() {
 		return traduzioni;
 	}
-
+	
 	public void aggiungiTraduzione(String traduzione) {
 		this.traduzioni.add(traduzione);
 	}
-	
+		
 	public boolean equals(Object obj) {
 		if (this.alienWord.equals(obj))
 			return true;
-		return false;
-		
+		return false;		
 	}
-	
 
 }
